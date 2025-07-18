@@ -30,6 +30,7 @@ const Portfolio = () => (
         <PortfolioCard image="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" title="Blog de Conteúdo" category="Criação de Conteúdo" delay="0.4s" />
         <PortfolioCard image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" title="E-commerce de Moda" category="E-commerce" delay="0.6s" />
         <PortfolioCard image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" title="Plataforma de Cursos" category="Educação Online" delay="0.8s" />
+        <PortfolioCard image="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1572&q=80" title="App de Saúde e Bem-estar" category="Desenvolvimento Mobile" delay="1.0s" />
       </div>
     </div>
   </section>
