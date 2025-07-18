@@ -30,6 +30,47 @@ const Hero = () => (
   </section>
 );
 
+// Componente Services
+interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const ServiceCard = ({ icon, title, description }: ServiceCardProps) => (
+  <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+    <div className="text-indigo-600 mb-4">{icon}</div>
+    <h3 className="text-2xl font-bold text-gray-800 mb-2">{title}</h3>
+    <p className="text-gray-600">{description}</p>
+  </div>
+);
+
+const Services = () => (
+  <section id="services" className="bg-gray-50 py-20">
+    <div className="container mx-auto px-6 text-center">
+      <h2 className="text-4xl font-extrabold text-gray-800 mb-4">Nossos Serviços</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Oferecemos soluções completas de marketing digital para alavancar sua presença online.</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <ServiceCard
+          icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>}
+          title="Desenvolvimento Web"
+          description="Criamos sites e aplicações web modernas, rápidas e responsivas para uma experiência de usuário impecável."
+        />
+        <ServiceCard
+          icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.351a1.76 1.76 0 011.164-2.288l5.517-1.72a1.76 1.76 0 012.288 1.164l2.147 6.351a1.76 1.76 0 01-.592 3.417l-5.517 1.72a1.76 1.76 0 01-2.288-1.164z" /></svg>}
+          title="Marketing Digital"
+          description="Estratégias de SEO, SEM e mídias sociais para aumentar sua visibilidade e gerar leads qualificados."
+        />
+        <ServiceCard
+          icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L15.232 5.232z" /></svg>}
+          title="Criação de Conteúdo"
+          description="Produzimos conteúdo relevante e de alta qualidade que engaja seu público e fortalece sua marca."
+        />
+      </div>
+    </div>
+  </section>
+);
+
 // Componente Footer
 const Footer = () => (
   <footer className="bg-gray-800 text-white">
@@ -45,7 +86,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        {/* As próximas seções (Serviços, Portfólio, Contato) serão adicionadas aqui */}
+        <Services />
+        {/* As próximas seções (Portfólio, Contato) serão adicionadas aqui */}
       </main>
       <Footer />
     </div>
