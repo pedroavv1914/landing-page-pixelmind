@@ -27,6 +27,18 @@ const testimonialsData = [
     company: "Fundadora da Creative Minds",
     avatar: "https://randomuser.me/api/portraits/women/65.jpg"
   },
+  {
+    quote: "A agilidade e a comunicação transparente da PixelMind foram essenciais para o lançamento do nosso novo produto. Parceria de sucesso!",
+    author: "Marcos Ferreira",
+    company: "Gerente de Produto da TechSolutions",
+    avatar: "https://randomuser.me/api/portraits/men/55.jpg"
+  },
+  {
+    quote: "Estávamos perdidos em nossa estratégia digital. A PixelMind nos deu clareza e um plano de ação que trouxe resultados imediatos.",
+    author: "Beatriz Lima",
+    company: "Sócia da Health & Wellness",
+    avatar: "https://randomuser.me/api/portraits/women/85.jpg"
+  },
 ];
 
 const Testimonials = () => {
