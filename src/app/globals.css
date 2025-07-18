@@ -312,6 +312,12 @@ body {
   }
 
   /* Header Mobile Alignment */
+  .header {
+    min-height: 80px; /* Aumenta a altura do header */
+    display: flex;
+    align-items: center;
+  }
+
   .header-container {
     display: flex;
     justify-content: space-between;
