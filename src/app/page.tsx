@@ -18,10 +18,10 @@ const Header = () => (
 
 // Componente Hero
 const Hero = () => (
-  <section id="hero" className="relative bg-gradient-to-r from-indigo-800 to-purple-900 text-white overflow-hidden">
+  <section id="hero" className="relative text-white overflow-hidden animated-gradient">
     <div className="container mx-auto px-6 py-32 text-center relative z-10">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Transformando Ideias em Resultados Digitais</h1>
-      <p className="text-lg md:text-xl text-indigo-200 max-w-3xl mx-auto mb-8">A agência de marketing digital que impulsiona o seu negócio para o futuro com estratégias inovadoras e criativas.</p>
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 fade-in-up">Transformando Ideias em Resultados Digitais</h1>
+      <p className="text-lg md:text-xl text-indigo-200 max-w-3xl mx-auto mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>A agência de marketing digital que impulsiona o seu negócio para o futuro com estratégias inovadoras e criativas.</p>
       <a href="#contact" className="bg-white text-indigo-600 font-bold py-4 px-10 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-2xl">
         Vamos Conversar
       </a>
@@ -38,7 +38,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ icon, title, description }: ServiceCardProps) => (
-  <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+  <div className="bg-white p-8 rounded-lg shadow-lg service-card-hover">
     <div className="text-indigo-600 mb-4">{icon}</div>
     <h3 className="text-2xl font-bold text-gray-800 mb-2">{title}</h3>
     <p className="text-gray-600">{description}</p>
@@ -71,6 +71,70 @@ const Services = () => (
   </section>
 );
 
+// Componente Portfolio
+interface PortfolioCardProps {
+  image: string;
+  title: string;
+  category: string;
+}
+
+const PortfolioCard = ({ image, title, category }: PortfolioCardProps) => (
+  <div className="bg-white rounded-lg shadow-lg overflow-hidden group">
+    <div className="relative">
+      <img src={image} alt={title} className="w-full h-64 object-cover" />
+      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="text-center text-white p-4">
+          <h3 className="text-2xl font-bold">{title}</h3>
+          <p className="text-lg">{category}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const Portfolio = () => (
+  <section id="portfolio" className="bg-white py-20">
+    <div className="container mx-auto px-6 text-center">
+      <h2 className="text-4xl font-extrabold text-gray-800 mb-4">Nosso Portfólio</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Confira alguns dos projetos que tivemos o prazer de desenvolver.</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <PortfolioCard image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" title="Website Corporativo" category="Desenvolvimento Web" />
+        <PortfolioCard image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" title="Campanha de Mídia Social" category="Marketing Digital" />
+        <PortfolioCard image="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" title="Blog de Conteúdo" category="Criação de Conteúdo" />
+      </div>
+    </div>
+  </section>
+);
+
+// Componente Contact
+const Contact = () => (
+  <section id="contact" className="bg-gray-50 py-20">
+    <div className="container mx-auto px-6 text-center">
+      <h2 className="text-4xl font-extrabold text-gray-800 mb-4">Entre em Contato</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Tem um projeto em mente? Adoraríamos ouvir sobre ele. Preencha o formulário abaixo.</p>
+      <form className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg text-left">
+        <div className="mb-6">
+          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Nome</label>
+          <input type="text" id="name" name="name" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required />
+        </div>
+        <div className="mb-6">
+          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+          <input type="email" id="email" name="email" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required />
+        </div>
+        <div className="mb-6">
+          <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Mensagem</label>
+          <textarea id="message" name="message" rows={4} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required></textarea>
+        </div>
+        <div className="text-center">
+          <button type="submit" className="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg transform hover:scale-105">
+            Enviar Mensagem
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+);
+
 // Componente Footer
 const Footer = () => (
   <footer className="bg-gray-800 text-white">
@@ -87,7 +151,8 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        {/* As próximas seções (Portfólio, Contato) serão adicionadas aqui */}
+        <Portfolio />
+        <Contact />
       </main>
       <Footer />
     </div>
