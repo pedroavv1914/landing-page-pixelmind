@@ -29,6 +29,14 @@ const faqData: FaqItemData[] = [
   {
     question: "Como vocês medem o sucesso de uma campanha?",
     answer: "O sucesso é medido através de KPIs (Indicadores-Chave de Performance) definidos no início do projeto. Isso pode incluir aumento de tráfego, geração de leads, taxa de conversão, engajamento nas redes sociais e, o mais importante, o retorno sobre o investimento (ROI)."
+  },
+  {
+    question: "Qual o diferencial da PixelMind em relação a outras agências?",
+    answer: "Nosso principal diferencial é a abordagem orientada a dados combinada com uma criatividade sem limites. Não apenas executamos campanhas, mas também nos tornamos parceiros estratégicos do seu negócio, focados em crescimento sustentável e resultados mensuráveis."
+  },
+  {
+    question: "Eu tenho acesso aos relatórios de desempenho?",
+    answer: "Com certeza. A transparência é um dos nossos pilares. Você terá acesso a dashboards em tempo real e receberá relatórios periódicos detalhados, com análises e os próximos passos recomendados por nossa equipe de especialistas."
   }
 ];
 
