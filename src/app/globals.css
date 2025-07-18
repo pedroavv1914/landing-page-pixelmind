@@ -127,54 +127,83 @@ body {
 /* Component: Hero */
 .hero-section {
   position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: white;
   overflow: hidden;
+  background-color: #0c0a18; /* Cor de fundo sólida para o herói */
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .hero-content {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  text-align: center;
   position: relative;
-  z-index: 10;
+  z-index: 2;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font-size: 4.5rem; /* Aumentar um pouco a fonte */
+  font-weight: 900; /* Mais peso */
   margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 4.5rem;
-  }
+  letter-spacing: -2px; /* Espaçamento mais apertado */
 }
 
 .hero-subtitle {
-  font-size: 1.125rem;
-  color: var(--indigo-200);
-  max-width: 48rem;
-  margin: 0 auto 2rem;
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
 }
 
-.hero-button {
-  background-color: white;
-  color: var(--indigo-600);
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-button-primary,
+.hero-button-secondary {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
   font-weight: 700;
-  padding: 1rem 2.5rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   display: inline-block;
-  text-decoration: none;
+  border: 2px solid transparent;
 }
 
-.hero-button:hover {
-  background-color: var(--gray-100);
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+.hero-button-primary {
+  background-color: var(--indigo-600);
+  color: white;
+}
+
+.hero-button-primary:hover {
+  background-color: var(--indigo-700);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+}
+
+.hero-button-secondary {
+  background-color: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-button-secondary:hover {
+  background-color: white;
+  color: var(--indigo-600);
+  transform: translateY(-3px) scale(1.05);
 }
 
 .hero-overlay {
@@ -408,10 +437,230 @@ body {
   color: #9ca3af;
 }
 
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Back to Top Button */
+.back-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--indigo-600);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.3s;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Component: Testimonials */
+.testimonials-carousel-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.testimonial-quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.testimonial-author-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author {
+  font-weight: 700;
+  color: var(--title-color);
+}
+
+.testimonial-company {
+  color: var(--text-light-color);
+}
+
+/* Swiper Customization */
+.testimonials-swiper .swiper-pagination-bullet {
+  background-color: var(--primary-color);
+  opacity: 0.5;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+.testimonials-swiper .swiper-button-next:hover,
+.testimonials-swiper .swiper-button-prev:hover {
+  color: var(--primary-hover-color);
+}
+
 .service-card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .service-card-hover:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Component: Process */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.process-step {
+  background-color: var(--background-gray);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+}
+
+.process-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.process-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: var(--title-color);
+}
+
+.process-description {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Component: FAQ */
+.faq-container {
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--title-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.faq-question:hover {
+  color: var(--primary-color);
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.faq-icon.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-answer.open {
+  max-height: 300px; /* Adjust as needed */
+  padding-bottom: 1.5rem;
+}
+
+.faq-answer p {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin: 0;
 }
