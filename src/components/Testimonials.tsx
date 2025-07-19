@@ -87,8 +87,6 @@ const Testimonials = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div ref={navigationPrevRef} className="swiper-button-prev-custom"></div>
-          <div ref={navigationNextRef} className="swiper-button-next-custom"></div>
         </div>
       </div>
     </section>
