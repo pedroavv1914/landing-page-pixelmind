@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -42,6 +42,8 @@ const testimonialsData = [
 ];
 
 const Testimonials = () => {
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
   return (
     <section id="testimonials" className="section section-gray">
       <div className="container">
@@ -54,7 +56,17 @@ const Testimonials = () => {
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}
-            navigation
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              // Garante que o objeto de navegação exista antes de atribuir os refs
+              if (swiper.params.navigation && typeof swiper.params.navigation === 'object') {
+                swiper.params.navigation.prevEl = navigationPrevRef.current;
+                swiper.params.navigation.nextEl = navigationNextRef.current;
+              }
+            }}
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             loop={true}
@@ -75,6 +87,8 @@ const Testimonials = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div ref={navigationPrevRef} className="swiper-button-prev-custom"></div>
+          <div ref={navigationNextRef} className="swiper-button-next-custom"></div>
         </div>
       </div>
     </section>
